@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Original Jaket</title>
+    <link rel="stylesheet" href="1.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-area">
+            <img src="Muaj.png" alt="Muaj.id" class="logo-bulat">
+            <p>Masukkan data pada tag jaket kamu</p>
+        </div>
+
+        <form id="cekForm">
+            <div class="input-group">
+                <label for="series">Nama Series</label>
+                <input type="text" id="series" placeholder="Contoh: Urban-01" required>
+            </div>
+
+            <div class="input-group">
+                <label for="kode">Kode Unik</label>
+                <input type="text" id="kode" placeholder="Masukkan kode di tag jaket" required>
+            </div>
+
+            <button type="submit" class="btn">Cek Sekarang</button>
+        </form>
+    </div>
+
+    <script>
+        // DAFTAR KODE ORIGINAL — Edit di sini ya!
+        const daftarKode = [
+            { series: "Vuyager", kode: "1V2025oNe" },
+            { series: "Vuyager", kode: "2V2025TwO" },
+            { series: "Vuyager", kode: "3VmU4j252" },
+            { series: "Vuyager", kode: "448Vy9r1d" },
+            { series: "Vuyager", kode: "0r1loo0Rl" },
+    { series: "Vuyager", kode: "Fr0m1d8rd" },
+    { series: "Vuyager", kode: "WJ1d8r4nd" },
+    { series: "Vuyager", kode: "Mu4J4sL1V" },
+    { series: "Vuyager", kode: "MU4j8r4Nd" }
+        ];
+
+        const form = document.getElementById('cekForm');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const series = document.getElementById('series').value.trim();
+            const kode = document.getElementById('kode').value.trim();
+
+            const terdaftar = daftarKode.find(item => 
+                item.series === series && item.kode === kode
+            );
+
+            if (terdaftar) {
+                window.location.href = "2.html";
+            } else {
+                window.location.href = "3.html";
+            }
+        });
+    </script>
+</body>
+</html>
